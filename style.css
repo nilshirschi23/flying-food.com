@@ -59,6 +59,7 @@ header h1{
   width: 100%;
   margin-top: 20px;
   list-style-type: none;
+  background-color: #F1F1F1;
 }
 
 .timeline:before {
