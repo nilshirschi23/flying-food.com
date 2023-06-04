@@ -90,24 +90,24 @@ body, html {
   <p class="w3-center w3-large">Kernidee unseres Startups</p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-quarter">
-      <i class="fa fa-mobile w3-margin-bottom w3-jumbo w3-center"></i>
+      <i class="fa fa-mobile w3-margin-bottom w3-jumbo w3-center" style="color: #FCC879;"></i>
       <p class="w3-large">Erster Schritt</p>
       <p>Der Kunde kann es sich auf einem FlyingFood Sitzbank gemütlich machen. Mithilfe einer Web App kann man ein Menü zusammenstellen und bestellen.
     </div>
     <div class="w3-quarter">
-      <i class="fa fa-home w3-margin-bottom w3-jumbo"></i>
+      <i class="fa fa-home w3-margin-bottom w3-jumbo" style="color: #FCC879;"></i>
       <p class="w3-large">Zweiter Schritt</p>
       <p>Das Menü wird von einem lokalen Restaurant hergestellt und anschliessend in einer Aluminium Box an die Drohne angebracht.
     </div>
     <div class="w3-quarter">
-      <i class="fa fa-plane w3-margin-bottom w3-jumbo"></i>
+      <i class="fa fa-plane w3-margin-bottom w3-jumbo" style="color: #FCC879;"></i>
       <p class="w3-large">Dritter Schritt</p>
       <p>Die Drohne liefert das Menü inerhalb weniger Minuten. Die Box wird dabei bei der Landung auf dem Landeplatz deponiert. 
     </div>
     <div class="w3-quarter">
-      <i class="fa fa-undo w3-margin-bottom w3-jumbo"></i>
+      <i class="fa fa-undo w3-margin-bottom w3-jumbo" style="color: #FCC879;"></i>
       <p class="w3-large">Vierter Schritt</p>
-      <p>Die Aluminium Box kann nach dem essen wieder auf der Landeplattform deboniert werden. Anschliessend wird die Box mittels Knopfdruck auf der Webapp von der Drohne wieder abgeholt.
+      <p>Die Aluminium Box kann nach dem Essen wieder auf der Landeplattform deponiert werden. Anschliessend wird die Box mittels Knopfdruck auf der Webapp von der Drohne wieder abgeholt.
     </div>
   </div>
 </div>
@@ -178,7 +178,7 @@ body, html {
 </div>
 
 <!-- Promo Section "Statistics" -->
-<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+<div class="w3-container w3-row w3-center" style="background-color: #FCC879; padding-top: 80px; padding-bottom: 80px;">
   <div class="w3-quarter">
     <span class="w3-xxlarge">90 km/h</span>
     <br>Höchstgeschwindigkeit der Drohne
@@ -197,6 +197,7 @@ body, html {
   </div>
 </div>
 
+
 <!-- Work Section -->
 <div class="w3-container" style="padding:128px 16px" id="work">
   <h3 class="w3-center">Kernkomponenten</h3>
@@ -204,22 +205,22 @@ body, html {
 
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col l3 m6">
-      <img src="/w3images/tech_mic.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Drohne">
+      <img src="bilder/Drohne_V3_2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Drohne">
     </div>
     <div class="w3-col l3 m6">
-      <img src="/w3images/tech_phone.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sitzbank">
+      <img src="bilder/Sitzbank.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sitzbank">
     </div>
     <div class="w3-col l3 m6">
-      <img src="/w3images/tech_drone.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Lande- und Startplatz">
+      <img src="bilder/landeplatz.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Lande- und Startplatz">
     </div>
     <div class="w3-col l3 m6">
-      <img src="/w3images/tech_sound.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Box holding system (BHS)">
+      <img src="bilder/bhs.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Box holding system (BHS)">
     </div>
   </div>
 
   <div class="w3-row-padding w3-section">
     <div class="w3-col l3 m6">
-      <img src="/w3images/tech_tablet.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Restaurant">
+      <img src="bilder/restaurant.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Restaurant">
     </div>
     <div class="w3-col l3 m6">
       <img src="/w3images/tech_camera.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Rechtlich">
@@ -311,13 +312,13 @@ body, html {
   <script>
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: {lat: 46.679442, lng: 7.698155},
+        zoom: 8,
+        center: {lat: 46.753033, lng: 7.633453},
         mapTypeId: 'satellite'
       });
 
       var locations = [
-        {lat: 46.679442, lng: 7.698155}, {lat: 46.675408, lng: 7.850352}
+        {lat: 46.753033, lng: 7.633453}, {lat: 46.685376, lng: 7.871701}, {lat: 46.946007, lng: 7.440112}, {lat: 47.375789, lng: 8.550223}, {lat: 47.568008, lng: 7.583011}, {lat: 46.220569, lng: 6.153234}
       ];
 
       locations.forEach(function(location) {
@@ -329,63 +330,69 @@ body, html {
     }
   </script>
 </body>
+</html>	
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      height: auto;
+      overflow: visible;
+    }
+    
+    .box {
+      width: 300px;
+      height: 300px;
+      margin: 20px;
+      padding: 50px;
+      background-color: #f1f1f1;
+      text-align: center;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      border-radius: 10px;
+    }
+    
+    .box1 {
+      background-image: url("bilder/burger_1.jpg");
+    }
+    
+    .box2 {
+      background-image: url("bilder/drink_1.jpg");
+      transform: translateY(50%);
+    }
+    
+    .box3 {
+      background-image: url("bilder/dessert_1.jpg");
+    }
+    
+    .box:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+  </div>
+</body>
 </html>
 
-<!-- Pricing Section -->
-<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
-  <h3>PRICING</h3>
-  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
-        <li class="w3-padding-16"><b>10GB</b> Storage</li>
-        <li class="w3-padding-16"><b>10</b> Emails</li>
-        <li class="w3-padding-16"><b>10</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 10</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
-        <li class="w3-padding-16"><b>50GB</b> Storage</li>
-        <li class="w3-padding-16"><b>50</b> Emails</li>
-        <li class="w3-padding-16"><b>50</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 50</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+
 
 <!-- Contact Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
@@ -408,22 +415,26 @@ body, html {
       </p>
     </form>
     <!-- Image of location/map -->
-    <img src="/w3images/map.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
+    <img src="bilder/background_1.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
   </div>
 </div>
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>zum Anfang</a>
+<footer class="w3-center" style="background-color: #FAAB4A; padding: 64px;">
+  <div class="w3-xlarge w3-section">
+    <p style="font-size: 14px; margin-bottom: 5px;">Kontaktiere uns:</p>
+    <p style="font-size: 14px; margin-bottom: 5px;">Email: nils.hirschi.priv@gmail.com</p>
+    <p style="font-size: 14px; margin-bottom: 5px;">Telefon: +76 671 57 01</p>
+    <p style="font-size: 14px; margin-bottom: 5px;">Adresse: Riedweg 12, 3705 Faulensee</p>
+  </div>
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Zum Anfang</a>
   <div class="w3-xlarge w3-section">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
     <i class="fa fa-linkedin w3-hover-opacity"></i>
   </div>
 </footer>
+
+
  
 <script>
 // Modal Image Gallery
