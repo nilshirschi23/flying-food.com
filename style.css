@@ -285,6 +285,10 @@ header h1{
   .direction-r .time-wrapper {
     float: right;
   }
+  
+  .centered-heading {
+  text-align: center;
+}
 
   .time {
     padding: 5px 10px;
