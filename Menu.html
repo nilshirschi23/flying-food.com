@@ -205,6 +205,23 @@
       <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </div>
+    id="checkoutForm" style="display: none;">
+    <form onsubmit="submitForm(event)">
+      <label for="fname">Vorname:</label><br>
+      <input type="text" id="fname" name="fname"><br>
+      <label for="lname">Nachname:</label><br>
+      <input type="text" id="lname" name="lname"><br>
+      <label for="bank">Banknummer:</label><br>
+      <input type="text" id="bank" name="bank"><br>
+      <label for="payment">Zahlungsmethode:</label><br>
+      <select id="payment" name="payment">
+        <option value="visa">Visa</option>
+        <option value="mastercard">MasterCard</option>
+        <option value="paypal">PayPal</option>
+      </select><br>
+      <input type="submit" value="Abschicken">
+    </form>
+  </div>
 
   <div class="sidebar" id="sidebar">
     <h2>Kategorien</h2>
@@ -315,12 +332,15 @@
     }
 
     function completeOrder() {
-      // Hier können weitere Aktionen zum Abschließen der Bestellung eingefügt werden
-      alert("Bestellung wurde abgeschlossen. Vielen Dank!");
-      cartItems = [];
-      cartTotal = 0.00;
-      showPage("cart");
-    }
+    // Hier können weitere Aktionen zum Abschließen der Bestellung eingefügt werden
+    alert("Bestellung wurde abgeschlossen. Vielen Dank!");
+    cartItems = [];
+    cartTotal = 0.00;
+    showPage("cart"); 
+    
+    // Anzeigen des Checkout-Formulars
+    document.getElementById("checkoutForm").style.display = "block";
+}
 
     function toggleSidebar() {
       sidebar.classList.toggle("collapsed");
