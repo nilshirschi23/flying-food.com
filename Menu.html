@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menüauswahl</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #f1f1f1;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
+      z-index: 1;
+      transition: width 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar.collapsed {
+      width: 0;
+      padding: 20px 0;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+      margin-left: 200px;
+      margin-right: 200px;
+      transition: margin-left 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+    }
+
+    .content.collapsed {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .menu {
+      display: inline-block;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .menu h2 {
+      margin-bottom: 5px;
+    }
+
+    .menu p {
+      margin-bottom: 10px;
+    }
+
+    .menu button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .menu button:hover {
+      background-color: #45a049;
+    }
+
+    .category {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 20px;
+      width: 300px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .category h2 {
+      margin-bottom: 10px;
+    }
+
+    .category ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    .category li {
+      margin-bottom: 5px;
+    }
+
+    .category button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .category button:hover {
+      background-color: #45a049;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color: #f1f1f1;
+      border-radius: 50%;
+      border: none;
+      z-index: 2;
+    }
+
+    .toggle-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: #333;
+    }
+
+    .sidebar h2 {
+      margin-top: 30px;
+    }
+     
+    #checkout-dialog {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #checkout-dialog .dialog-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-btn" onclick="toggleSidebar()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <h2>Kategorien</h2>
+    <ul>
+      <li><a href="#burgers" onclick="showPage('burgers', 'Background_Burgers.jpg', 0.7)">Burger</a></li>
+      <li><a href="#pizzas" onclick="showPage('pizzas', 'images/pizza-bg.jpg', 0.8)">Pizzas</a></li>
+      <li><a href="#desserts" onclick="showPage('desserts', 'images/dessert-bg.jpg', 0.9)">Desserts</a></li>
+      <li><a href="#cart" onclick="showPage('cart')">Warenkorb</a></li>
+    </ul>
+  </div>
+
+  <div class="content" id="content">
+    <div id="page"></div>
+  </div>
+
+  <script>
+    var cartItems = [];
+    var cartTotal = 0.00;
+
+    var sidebar = document.getElementById("sidebar");
+    var content = document.getElementById("content");
+    var toggleBtn = document.querySelector(".toggle-btn");
+
+    function showPage(category, backgroundImage, opacity) {
+      var pageContent = "";
+
+      if (category === "burgers") {
+        document.body.style.backgroundImage = "url('Background_Burgers.jpg')";
+
+        pageContent += "<h1>Burger</h1>";
+        pageContent += '<div class="menu">';
+        pageContent += '<img src="Burger_1.jpg" alt="Burger">';
+        pageContent += '<h2>Mexikanischer Burger</h2>';
+        pageContent += '<p>Preis: $8.99</p>';
+        pageContent += '<p>Rindfleisch-Patty mit Guacamole, Salsa, Jalapenos und Monterey Jack Käse.</p>';
+        pageContent += '<button onclick="addToCart(\'Mexikanischer Burger\', 8.99)">Zum Warenkorb hinzufügen</button>';
+        pageContent += '</div>';
+
+        pageContent += '<div class="menu">';
+        pageContent += '<img src="Burger_2.jpg" alt="Burger">';
+        pageContent += '<h2>Mediterraner Burger</h2>';
+        pageContent += '<p>Preis: $10.99</p>';
+        pageContent += '<p>Lamm-Patty mit Feta-Käse, Oliven-Tapenade, Rucola und gegrillter Paprika.</p>';
+        pageContent += '<button onclick="addToCart(\'Mediterraner Burger\', 10.99)">Zum Warenkorb hinzufügen</button>';
+        pageContent += '</div>';
+
+        // Hier können weitere Burger-Menüs hinzugefügt werden
+      } else if (category === "pizzas") {
+        document.body.style.backgroundImage = "url('Background_Pizzas.jpg')";
+
+        pageContent += "<h1>Pizzas</h1>";
+        pageContent += '<div class="menu">';
+        pageContent += '<img src="pizza.jpg" alt="Pizza">';
+        pageContent += '<h2>Margherita Pizza</h2>';
+        pageContent += '<p>Preis: $9.99</p>';
+        pageContent += '<p>Eine köstliche Pizza mit würziger Tomatensauce und Mozzarella-Käse.</p>';
+        pageContent += '<button onclick="addToCart(\'Margherita Pizza\', 9.99)">Zum Warenkorb hinzufügen</button>';
+        pageContent += '</div>';
+
+        // Hier kommt die zweite Pizza hinzu
+        pageContent += '<div class="menu">';
+        pageContent += '<img src="pizza2.jpg" alt="Pizza">';
+        pageContent += '<h2>Pepperoni Pizza</h2>';
+        pageContent += '<p>Preis: $10.99</p>';
+        pageContent += '<p>Eine klassische Pizza mit scharfer Pepperoni und Käse.</p>';
+        pageContent += '<button onclick="addToCart(\'Pepperoni Pizza\', 10.99)">Zum Warenkorb hinzufügen</button>';
+        pageContent += '</div>';
+
+      } else if (category === "desserts") {
+        document.body.style.backgroundImage = "url('Background_Desserts.jpg')";
+
+        pageContent += "<h1>Desserts</h1>";
+        pageContent += '<div class="menu">';
+        pageContent += '<img src="dessert.jpg" alt="Dessert">';
+        pageContent += '<h2>Schokoladenkuchen</h2>';
+        pageContent += '<p>Preis: $4.99</p>';
+        pageContent += '<p>Ein köstlicher Schokoladenkuchen mit Sahne und Beeren.</p>';
+        pageContent += '<button onclick="addToCart(\'Schokoladenkuchen\', 4.99)">Zum Warenkorb hinzufügen</button>';
+        pageContent += '</div>';
+
+        // Hier können weitere Dessert-Menüs hinzugefügt werden
+      } else if (category === "cart") {
+        document.body.style.backgroundImage = "url('Logo.png')"; 
+
+        pageContent += "<h1>Warenkorb</h1>";
+        pageContent += "<div class='category' style='background-image: url(" + backgroundImage + "); opacity: " + opacity + "'>";
+        pageContent += "<h2>Bestellung</h2>";
+        pageContent += "<ul>";
+        for (var i = 0; i < cartItems.length; i++) {
+          pageContent += "<li>" + cartItems[i].item + " ($" + cartItems[i].price.toFixed(2) + ")</li>";
+        }
+        pageContent += "</ul>";
+        pageContent += "<h2>Gesamtpreis</h2>";
+        pageContent += "<p>$" + cartTotal.toFixed(2) + "</p>";
+        pageContent += "<button onclick='completeOrder()'>Bestellung abschließen</button>";
+        pageContent += "</div>";
+      }
+
+      document.getElementById("page").innerHTML = pageContent;
+    }
+
+    function addToCart(itemName, price) {
+      cartItems.push({ item: itemName, price: price });
+      cartTotal += price;
+
+      showPage("cart");
+    }
+
+    function completeOrder() {
+      // Hier können weitere Aktionen zum Abschließen der Bestellung eingefügt werden
+      alert("Bestellung wurde abgeschlossen. Vielen Dank!");
+      cartItems = [];
+      cartTotal = 0.00;
+      showPage("cart");
+    }
+
+    function toggleSidebar() {
+      sidebar.classList.toggle("collapsed");
+      content.classList.toggle("collapsed");
+      toggleBtn.classList.toggle("collapsed");
+    }
+  </script>
+</body>
+</html>
