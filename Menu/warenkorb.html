@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1.0">
+  <title>Ihr Warenkorb</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Mein Warenkorb</h1>
+  </header>
+
+  <main id="cart-content">
+    <!-- Produkte im Warenkorb werden hier angezeigt -->
+  </main>
+  
+  <div id="cart-buttons">
+    <!-- Formspree-Formular startet hier -->
+    <form id="cart-form" action="https://formspree.io/f/xbjvdqlb" method="POST">
+      <input type="hidden" name="email" value="Jogiro12@gmail.com">
+      <textarea name="message" id="cart-input" hidden></textarea>
+      <button type="button" id="pay-button">Bezahlen</button>
+    </form>
+    <!-- Formspree-Formular endet hier -->
+    <a id="back-button" href="index.html">Zurück</a>
+  </div>
+
+  <footer>
+    <p id="total-price">Total Preis: </p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="warenkorb.js"></script>
+</body>
+</html>
