@@ -89,133 +89,7 @@ footer #total-price {
   font-size: 1.5em;
 }
 
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 100vh;
-  background: #333;
-  color: #fff;
-  padding: 20px;
-  transition: left 0.5s;
-}
-
-#sidebar.collapsed {
-  left: -200px;
-}
-
-#sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#sidebar ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-#content {
-  margin-left: 220px;
-  transition: margin-left 0.5s;
-  padding: 20px;
-  box-sizing: border-box;
-  width: calc(100% - 220px);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-#content.collapsed {
-  margin-left: 20px;
-  width: calc(100% - 20px);
-}
-
-#toggle {
-  position: absolute;
-  top: 20px;
-  left: 230px;
-  font-size: 30px;
-  cursor: pointer;
-  transition: left 0.5s;
-}
-
-#toggle.collapsed {
-  left: 50px;
-}
-
-.card {
-  position: relative;
-  width: calc(33% - 20px);
-  padding-top: 33%;
-  overflow: hidden;
-  border-radius: 30px;
-  border: thin solid black;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-  margin: 0 20px 20px -10px;
-}
-
-.card-img, .card-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card-img {
-  object-fit: cover;
-  transition: opacity 0.5s;
-}
-
-.card-content {
-  padding: 20px;
-  box-sizing: border-box;
-  color: white;
-  background: rgba(0,0,0,0.5);
-  opacity: 0;
-  transition: opacity 0.5s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-content .card-title {
-  margin: 0;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.card-content .card-description {
-  font-size: 16px;
-}
-
-.card-content .card-price {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.card-content .card-button {
-  background-color: #ff6347;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.card:hover .card-img {
-  opacity: 0.3;
-}
-
-.card:hover .card-content {
-  opacity: 1;
-}
+/*... restlichen Styles ...*/
 
 @media only screen and (max-width: 600px) {
   #sidebar, #toggle, #content {
@@ -231,5 +105,26 @@ footer #total-price {
 
   .card {
     width: 100%;
+  }
+
+  #cart-buttons button, #back-button, #pay-button {
+    padding: 30px 50px;
+    font-size: 1.5em;
+  }
+
+  #cart-content h2 {
+    font-size: 1.5em;
+  }
+
+  #cart-content p {
+    font-size: 1.3em;
+  }
+
+  footer #total-price {
+    font-size: 2em;
+  }
+
+  #cart-content div {
+    flex-direction: column;
   }
 }
