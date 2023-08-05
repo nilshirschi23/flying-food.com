@@ -15,7 +15,7 @@ function displayCart() {
     totalPrice += item.price;
   });
   
-  document.querySelector('#total-price').innerText += `${totalPrice.toFixed(2)} CHF`;
+  document.querySelector('#total-price').innerText = `Total Preis: ${totalPrice.toFixed(2)} CHF`;
 
   document.querySelectorAll('.delete-item').forEach(item => {
     item.addEventListener('click', function() {
