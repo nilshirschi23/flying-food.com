@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #FBB156;
 }
 
 form {
@@ -30,7 +30,7 @@ input[type="text"], input[type="number"] {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #5C6BC0;
+    background-color: #C23008;
     color: white;
     border: none;
     border-radius: 4px;
@@ -39,5 +39,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #7986CB;
+    background-color: #DB610F;
 }
