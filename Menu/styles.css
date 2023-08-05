@@ -217,6 +217,18 @@ footer #total-price {
   opacity: 1;
 }
 
+#sidebar ul li a {
+  color: #4CAF50; /* Ändert die Schriftfarbe */
+  font-size: 1.5em; /* Ändert die Schriftgröße */
+  padding: 10px; /* Fügt padding hinzu, um den Link "klickbarer" zu machen */
+  display: block; /* Stellt sicher, dass der Link die volle Breite des li-Elements einnimmt, was ihn leichter klickbar macht */
+}
+
+#sidebar ul li a:hover {
+  background-color: #555; /* Ändert die Hintergrundfarbe beim Überfahren des Links */
+  color: #fff; /* Ändert die Schriftfarbe beim Überfahren des Links */
+}
+
 @media only screen and (max-width: 600px) {
   #sidebar, #toggle, #content {
     position: static;
@@ -231,5 +243,28 @@ footer #total-price {
 
   .card {
     width: 100%;
+    padding-top: 800px; /* Ändern Sie diesen Wert, um die Höhe der Karte zu erhöhen */
+  }
+  
+  .card-img, .card-content {
+    height: 800px; /* Stellen Sie sicher, dass dies mit dem Wert von 'padding-top' übereinstimmt */
+  }
+
+  #toggle {
+    display: none;
+  }
+
+  #sidebar ul li a {
+    color: #4CAF50;
+    background-color: #333; 
+    font-size: 1.2em; 
+    padding: 10px; 
+    display: block; 
+  }
+
+  #sidebar ul li a:hover {
+    background-color: #555; 
   }
 }
+
+
