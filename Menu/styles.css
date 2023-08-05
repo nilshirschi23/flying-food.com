@@ -7,7 +7,7 @@
 
 #title-image {
   height: 250px;
-  background: url('https://images.pexels.com/photos/735869/pexels-photo-735869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+  background-image: url("title.webp");
   background-size: cover;
 }
 
@@ -38,11 +38,11 @@
 }
 
 #pay-button {
-  background-color: #4CAF50;
+  background-color: #FBB156;
 }
 
 #back-button {
-  background-color: #f44336;
+  background-color: #C23008;
 }
 
 #cart-content {
@@ -60,7 +60,7 @@
   width: 80%;
   display: flex;
   justify-content: space-between;
-  background-color: #f8f8f8;
+  background-color: #DB610F;
 }
 
 #cart-content h2 {
@@ -98,11 +98,12 @@ footer #total-price {
   background: #333;
   color: #fff;
   padding: 20px;
-  transition: left 0.5s;
+  transition: transform 0.5s;
+  transform: translateX(0);
 }
 
 #sidebar.collapsed {
-  left: -200px;
+  transform: translateX(-200px);
 }
 
 #sidebar ul {
@@ -197,7 +198,7 @@ footer #total-price {
 }
 
 .card-content .card-button {
-  background-color: #ff6347;
+  background-color: #FB921B;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -218,7 +219,7 @@ footer #total-price {
 }
 
 #sidebar ul li a {
-  color: #4CAF50; /* Ändert die Schriftfarbe */
+  color: #EE7F16; /* Ändert die Schriftfarbe */
   font-size: 1.5em; /* Ändert die Schriftgröße */
   padding: 10px; /* Fügt padding hinzu, um den Link "klickbarer" zu machen */
   display: block; /* Stellt sicher, dass der Link die volle Breite des li-Elements einnimmt, was ihn leichter klickbar macht */
@@ -255,7 +256,7 @@ footer #total-price {
   }
 
   #sidebar ul li a {
-    color: #4CAF50;
+    color: #FCC879;
     background-color: #333; 
     font-size: 1.2em; 
     padding: 10px; 
