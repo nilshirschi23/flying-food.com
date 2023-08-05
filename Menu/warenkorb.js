@@ -13,8 +13,6 @@ function displayCart() {
     
     cartContent.appendChild(itemDiv);
     totalPrice += item.price;
-
-    document.querySelector('#cart-input').value += `Produkt ID: ${item.id}, Preis: ${item.price} CHF\n`;
   });
   
   document.querySelector('#total-price').innerText += `${totalPrice.toFixed(2)} CHF`;
@@ -25,13 +23,12 @@ function displayCart() {
       warenkorb.splice(index, 1);
       localStorage.setItem('cart', JSON.stringify(warenkorb));
       cartContent.innerHTML = '';
-      document.querySelector('#cart-input').value = '';
       displayCart();
     });
   });
 
-  document.querySelector('#pay-button').addEventListener('click', function() {
-    document.querySelector('#cart-form').submit();
+  document.querySelector('#next-button').addEventListener('click', function() {
+    window.location.href = 'form.html';
   });
 }
 
