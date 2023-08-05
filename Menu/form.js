@@ -1,27 +1,19 @@
 document.getElementById("meinFormular").addEventListener("submit", function(event){
   event.preventDefault();
 
+  let warenkorb = JSON.parse(localStorage.getItem('cart')) || [];
   let vorname = document.getElementById("vorname").value;
   let nachname = document.getElementById("nachname").value;
   let sitzbank = document.getElementById("sitzbank").value;
 
-  alert("Vorname: " + vorname + "\nNachname: " + nachname + "\nSitzbank Nummer: " + sitzbank);
+  let message = "Vorname: " + vorname + "\nNachname: " + nachname + "\nSitzbank Nummer: " + sitzbank + "\n\nWarenkorb:\n";
+
+  warenkorb.forEach((item, index) => {
+    message += `Produkt ID: ${item.id}, Preis: ${item.price} CHF\n`;
+  });
+
+  document.querySelector('#cart-input').value = message;
+
+  // Formular absenden
+  document.querySelector('#meinFormular').submit();
 });
-
-document.querySelector('#total-price').innerText += `${totalPrice.toFixed(2)} CHF`;
-
-  document.querySelectorAll('.delete-item').forEach(item => {
-    item.addEventListener('click', function() {
-      let index = this.getAttribute('data-index');
-      warenkorb.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(warenkorb));
-      cartContent.innerHTML = '';
-      document.querySelector('#cart-input').value = '';
-      displayCart();
-    });
-  });
-
-  document.querySelector('#pay-button').addEventListener('click', function() {
-    document.querySelector('#cart-form').submit();
-  });
-}
